@@ -1,0 +1,10 @@
+
+[
+{"code":"1","name":"YES24","area1":"서울","area2":"서초","area3":"방배","book_cnt":"10000","owner_nm":"정회원","tel_num":"02-1234-5678"},
+{"code":"2","name":"교보문고","area1":"강원","area2":"동해","area3":"심곡","book_cnt":"11000","owner_nm":"나대연","tel_num":"033-2234-5678"},
+{"code":"3","name":"알라딘","area1":"경기","area2":"성남","area3":"분당","book_cnt":"9000","owner_nm":"김상순","tel_num":"031-3234-5678"},
+{"code":"4","name":"인터파크","area1":"경남","area2":"창원","area3":"경화","book_cnt":"8000","owner_nm":"장베리","tel_num":"055-4234-5678"},
+{"code":"5","name":"리브로","area1":"광주","area2":"남구","area3":"","book_cnt":"12000","owner_nm":"박파이","tel_num":"062-5234-5678"},
+{"code":"6","name":"G마켓","area1":"제주","area2":"서귀포","area3":"","book_cnt":"13000","owner_nm":"전세용","tel_num":"064-6234-5678"},
+{"code":"7","name":"11번가","area1":"부산","area2":"수영","area3":"광안","book_cnt":"10000","owner_nm":"최삽삽","tel_num":"051-7234-5678"}
+]

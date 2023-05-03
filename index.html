@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocknLock</title>
+  <!-- 초기화 -->
+  <link rel="stylesheet" href="./css/reset.css" type="text/css">
+  <!-- 기본서식 -->
+  <link rel="stylesheet" href="./css/base.css" type="text/css">
+  <!-- 공통서식 -->
+  <link rel="stylesheet" href="./css/common.css" type="text/css">
+  <!-- 콘텐츠 영역서식 -->
+  <link rel="stylesheet" href="./css/main.css" type="text/css">
+  <!-- 아이콘 폰트 주소 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <!-- 파비콘 -->
+  <link rel="shortcut icon" type="image/x-icon" href="./image/favicon.ico"/>
+
+  <!-- css3추가속성시 접두사 자동으로 붙여주는 스크립트 -->
+  <script src="./script/prefixfree.min.js"></script>
+  <!-- 제이쿼리 -->
+  <script src="./script/jquery-3.6.3.min.js"></script>
+  <!-- 제이쿼리 UI -->
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <!-- 제이쿼리 쿠키파일 -->
+  <script src="./script/jquery.cookie.js"></script>
+
+  <script src="./script/main.js" defer></script>
+
+  <script>
+    //배열객체를 사용하여 스마트폰의 종류를 작성한다.
+    let mobile = new Array('Android','iPhone','iPad','SAMSUNG','BlackBerry','Windows Phone','Windows CE','MOT','SonyEricsson','Nokia');
+
+    //모바일에서 pc보기를 클릭해서 다시 pc페이지가 보이게
+    if(document.URL.match('move_pc_screen')) mobile = null;
+
+    //만약에 위 배열 값 개수만큼 반복하여 사용자가 접속한 스마트폰의 종류를 체크하여 맞다면 아래 내용을 실행한다.
+    for(let i in mobile){ //in 키워드 값이 있으면 true, 없으면 false
+      if(navigator.userAgent.match(mobile[i]) != null){ //일치하는게 있으면
+        location.href='http://kcdh29.dothome.co.kr/23.02.15/mindex.html'; //모바일로 접속한다.
+        break;
+      }
+    }
+  </script>
+</head>
+<body>
+  
+  <header>  
+    <div class="header_box">
+      <h1 class="logo_box">
+        <a href="index.html" title="메인페이지 바로가기">
+          <svg class="header__svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 18">
+            <path d="M0 0h3.67v14.39h8.14v3.26H0zm40.82 17.65h3.32v-4.4l1.28-1.31 3.32 5.71h4l-5.05-8.08 4.56-4.7h-3.93l-4.18 4.6V0h-3.32zm26.42 0H79v-3.26h-8.09V0h-3.67zm40.81 0h3.32v-4.4l1.29-1.31 3.34 5.71h4l-5.07-8.08 4.56-4.7h-3.93l-4.19 4.6V0h-3.32zm-88.9-2.29c-2.25 0-2.93-2.06-2.93-4.08s.68-4.11 2.93-4.11 2.94 2.05 2.94 4.11-.68 4.08-2.94 4.08m0-10.84c-3.79 0-6.25 2.68-6.25 6.76S15.36 18 19.15 18s6.26-2.67 6.26-6.72S23 4.52 19.15 4.52m19.66 4.85C38.6 6.11 36 4.53 33.13 4.53 29.2 4.53 27 7.47 27 11.45c0 3.83 2.41 6.55 6.06 6.55a5.5 5.5 0 005.82-5.24h-3.2A2.62 2.62 0 0133 15.35c-2.08 0-2.76-2.2-2.76-4S31 7.17 33.1 7.17a2.31 2.31 0 012.46 2.2zm15 8.28h3.32V11c0-2.59.77-3.66 2.57-3.66 1.54 0 2.13 1 2.13 3.14v7.22h3.32V9.79c0-3.16-.89-5.27-4.42-5.27A4.27 4.27 0 0057 6.65V4.87h-3.18zm32.56-2.29c-2.24 0-2.92-2.06-2.92-4.08s.68-4.11 2.92-4.11 3 2.05 3 4.11-.68 4.08-3 4.08m0-10.84c-3.79 0-6.24 2.68-6.24 6.76S82.59 18 86.38 18s6.27-2.67 6.27-6.72-2.46-6.76-6.27-6.76M106 9.37c-.21-3.26-2.83-4.84-5.68-4.84-3.93 0-6.17 2.94-6.17 6.92 0 3.83 2.45 6.55 6.1 6.55a5.5 5.5 0 005.82-5.24h-3.2a2.61 2.61 0 01-2.64 2.59c-2.08 0-2.76-2.2-2.76-4s.7-4.15 2.83-4.15a2.3 2.3 0 012.45 2.2z" fill="#1d1d1b"></path>
+            </svg>
+        </a>
+      </h1>
+
+      <nav class="gnb">
+        <ul class="gnb_li">
+          <li>
+            <a href="#" title="About">About</a>
+            <div class="gnb_li_li">
+              <ul class="about_li">
+                <li><a href="#" title="브랜드">Brand</a></li>
+                <li><a href="#" title="히스토리">History</a></li>
+                <li><a href="#" title="어워드">Award</a></li>
+                <li><a href="#" title="경영정보">경영정보</a></li>
+                <li><a href="#" title="사회공헌">사회공헌</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#" title="Product">Product</a>
+            <div class="gnb_li_li">
+              <ul class="porduct_li">
+                <li>
+                  <a href="#" title="">Foodcontainer</a>
+                  <ul class="Foodcontainer_li">
+                    <li><a href="#" title="일반식품 보관">일반식품 보관</a></li>
+                    <li><a href="#" title="밥 보관">밥 보관</a></li>
+                    <li><a href="#" title="김치발효식품 보관">김치&middot;발표 식품 보관</a></li>
+                    <li><a href="#" title="건식품 보관">건식품 분류 보관</a></li>
+                    <li><a href="#" title="도시락">도시락</a></li>
+                    <li><a href="#" title="간편하게 조리">간편하게 조리</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" title="Beverageware">Beverageware</a>
+                  <ul class="Beverageware_li">
+                    <li><a href="#" title="온-더-고">온-더-고</a></li>
+                    <li><a href="#" title="온-더-테이블">온-더-테이블</a></li>
+                    <li><a href="#" title="드라이브">드라이브</a></li>
+                    <li><a href="#" title="아웃도어">아웃도어</a></li>
+                    <li><a href="#" title="비어">비어</a></li>
+                    <li><a href="#" title="키즈">키즈</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" title="Cookware">Cookware</a>
+                  <ul class="Cookware_li">
+                    <li><a href="#" title="스페셜 디자인">스페셜 디자인</a></li>
+                    <li><a href="#" title="편리한 사용">편리한 사용</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" title="Small Appliance">Small Appliance</a>
+                  <ul class="Small Appliance_li">
+                    <li><a href="" title="주방생활">주방생활</a></li>
+                    <li><a href="" title="케어">케어</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" title="E-Catalog">E-Catalog</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#" title="Innovation">Innovation</a>
+            <div class="gnb_li_li">
+              <ul class="innovation_li">
+                <li><a href="#" title="LL Labs">LL Labs</a></li>
+                <li><a href="#" title="Design Center">Design Center</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#" title="Story">Story</a>
+            <div class="gnb_li_li">
+              <ul class="story_li">
+                <li><a href="#" title="News">News</a></li>
+                <li><a href="#" title="Lounge">Lounge</a></li>
+                <li><a href="#" title="Now">Now</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#" title="ESG">ESG</a>
+            <div class="gnb_li_li">
+              <ul class="esg_li">
+                <li><a href="#" title="환경">환경</a></li>
+                <li><a href="#" title="사회">사회</a></li>
+                <li><a href="#" title="지배구조">지배구조</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#" title="Career">Career</a>
+            <div class="gnb_li_li">
+              <ul class="career_li">
+                <li><a href="#" title="사내문화">사내문화</a></li>
+                <li><a href="#" title="채용모집">채용모집</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="h_right">
+        <div class="lockmall">
+          <a href="#" title="락앤락몰">
+            <img src="./image/mall_header2.png" alt="락앤락몰">
+          </a>
+        </div>
+        
+        <div class="lang">
+          <select name="lang" id="lang">
+            <option value="kor">KOR</option>
+            <option value="ENG">ENG</option>
+            <option value="CH">CH</option>
+          </select>
+        </div>
+
+        <div class="search">
+          <a href="#" title="검색">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+        </div>
+      </div>  
+    </div>
+  </header>
+
+  <main>
+
+    <section id="visual_slide">
+      <h2>메인 슬라이드</h2>
+      <ul class="slide">
+        <li>
+          <div class="video_box">
+            <p><span>좋은 것을 담다.</span><p>
+            <p><span>락앤락인 제안하는 더 나은 생활</span></p>  
+            <a href="#" title="더보기" class="more_box">더보기</a>
+            <video autoplay muted loop  id="video1">
+              <source src="./video/main-hero-0-lg.mp4" type="video/mp4">
+            </video>
+          </div>
+        </li>
+        <li>
+          <div class="video_box">
+            <p><span>러브 포 플래닛</span><p>
+            <p><span>지구를 위해 자원순환 캠페인에 '용기' 내기</span></p>  
+            <a href="#" title="더보기" class="more_box">더보기</a>
+            <video autoplay muted loop id="video2">
+              <source src="./video/main-hero-lovefor-lg-1.mp4" type="video/mp4" >
+            </video>
+          </div>
+        </li>
+        <li>
+          <div class="video_box">
+            <p><span>인덕션 착붙냄비, 락앤락 슈트IH</span></p>
+            <a href="#" title="더보기" class="more_box">더보기</a>
+            <video autoplay muted loop  id="video3">
+              <source src="./video/0830_suit_index_web.mp4" type="video/mp4">
+            </video>
+          </div>
+        </li>
+      </ul>
+
+      <div class="btn_box">
+        <ul>
+          <li><i class="fas fa-angle-left"></i></li>
+          <li><i class="fas fa-angle-right"></i></li>
+        </ul>
+      </div>   
+
+      <div class="c_btn">  
+        <ul>
+          <li class="on1">&nbsp;</li>
+          <li>&nbsp;</li>
+          <li>&nbsp;</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="intro_sec">
+      <h2>기업소개</h2>
+      <article class="intro">
+        <div class="intro_l">
+          <img src="./image/intro_img.jpg" alt="인트로이미지">
+        </div>
+        <div class="intro_r">
+          <ul class="intro_img">
+            <li><img src="./image/locknlock-eng.png" alt="영어로고"></li>
+            <li><img src="./image/locknlock-kor.png" alt="한글로고"></li>
+            <li><img src="./image/locknlock-chn.png" alt="중국어로고"></li>
+          </ul>
+          <div class="intro_txt">
+            <p>생활에 필요한 가치와 제품에서 출발한 락앤락이라는</p>
+            <p>이름은 사람들과 제품을 잇는 매개체로 진화해 왔습니다.</p>
+            <p>락앤락의 레터타입은 사람들의 생활과 우리의 제품이</p>
+            <p>긴밀하고 유기적으로 연결되어 있음을 상징합니다.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="n_e_sec">
+      <h2>NEWS&EVENT</h2>
+      <div class="news_title">
+        <div class="news_txt">
+          <h3>NEWS&<br>EVENT</h3>
+        </div>
+      </div>
+      <div class="news_tab">
+        <ul class="news_tab_li">
+          <li class="on2">
+            <div class="news_tab_li_box">
+              <h4>2월의 온오프라인 세일</h4>
+              <p>저장/밀폐/조리/가전/보온/주방/생활 등</p>
+              <p>02.06-02.15</p>
+              <i class="fas fa-angle-right"></i>
+            </div>
+          </li>
+          <li>
+            <div class="news_tab_li_box">
+              <h4>2월의 온오프라인 세일</h4>
+              <p>저장/밀폐/조리/가전/보온/주방/생활 등</p>
+              <p>02.06-02.15</p>
+              <i class="fas fa-angle-right"></i>
+            </div>
+          </li>
+          <li>
+            <div class="news_tab_li_box">
+              <h4>락앤락, 국제 소비재 박락회<br> '2023 암비엔테(Ambiente)' 참가</h4>
+              <p>#암비엔테 #Ambiente #소비재 박람회</p>
+              <p>2023. 02 .03</p>
+              <i class="fas fa-angle-right"></i>
+            </div>
+          </li>
+          <li>
+            <div class="news_tab_li_box">
+              <h4>락앤락, 2023 대한민국<br>퍼트스브랜드 대상 주방용품<br>부문 1위 수상</h4>
+              <p>#퍼스트브랜드대상 #1위 #쿸웨이 #슈트IH</p>
+              <p>2023. 01 .18</p>
+              <i class="fas fa-angle-right"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="news_img">
+        <a href="#" title=""><img src="./image/News_Event_img1.jpg" alt="" id="news_big_img"></a>
+      </div>
+    </section>
+
+    <section id="prd_sec">
+      <h2>제품소개</h2>
+      <div class="prd_txt">
+        <ul>
+          <li>안심하고 담다.</li>
+          <li>편리함을 담다.</li>
+          <li>이야기를 담다.</li>
+          <li>안심하고 담다.</li>
+          <li>편리함을 담다.</li>
+          <li>이야기를 담다.</li>
+          <li>안심하고 담다.</li>
+          <li>편리함을 담다.</li>
+          <li>이야기를 담다.</li>
+          <li>안심하고 담다.</li>
+          <li>편리함을 담다.</li>
+          <li>이야기를 담다.</li>
+        </ul>
+      </div>
+      <div class="prd_img">
+        <ul>
+          <li class="bvg1_1">
+            <img src="./image/product01.png" alt="제품이미지1" class="image1">
+            <div class="bg_box"></div>
+            <ul>
+              <li><img src="./image/sub_img1.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img2.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img3.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img7.png" alt="제품설명"></li>
+            </ul>
+          </li>
+          <li class="bvg1_2">
+            <img src="./image/product02.png" alt="제품이미지1" class="image2">            
+            <div class="bg_box"></div>
+            <ul>
+              <li><img src="./image/sub_img1.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img2.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img3.png" alt="제품설명"></li>
+            </ul>
+          </li>
+          <li class="bvg1_3">
+            <img src="./image/product03.png" alt="제품이미지1" class="image3">            
+            <div class="bg_box"></div>
+            <ul>
+              <li><img src="./image/sub_img1.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img2.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img3.png" alt="제품설명"></li>
+            </ul>
+          </li>
+          <li class="bvg1_4">
+            <img src="./image/product04.png" alt="제품이미지1" class="image4">            
+            <div class="bg_box"></div>
+            <ul>
+              <li><img src="./image/sub_img1.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img2.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img3.png" alt="제품설명"></li>
+            </ul>
+          </li>
+          <li class="bvg1_5">
+            <img src="./image/product05.png" alt="제품이미지1" class="image5">            
+            <div class="bg_box"></div>
+            <ul>
+              <li><img src="./image/sub_img1.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img2.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img3.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img4.png" alt="제품설명"></li>
+            </ul>
+          </li>
+          <li class="bvg1_6">
+            <img src="./image/product06.png" alt="제품이미지1" class="image6">            
+            <div class="bg_box"></div>
+            <ul>
+              <li><img src="./image/sub_img1.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img2.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img3.png" alt="제품설명"></li>
+              <li><img src="./image/sub_img5.png" alt="제품설명"></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="m_prd">
+          <a href="#" title="">더 많은 제품<br>보러가기</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="lounge_sec">
+      <h2>Lounge</h2>
+        <div class="s_wrap">
+          <figure>
+            <img src="./image/Lounge_img1.jpg" alt="라운지이미지1">
+            <figcaption>
+              <span>[그래서 베스트]<br>착하게 쓰여요.</span>
+              <p>#제로웨이스트 #밀폐용기 #알맹상점 #베스트 #락앤락몰</p>
+              <p>2023. 01. 18</p>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="./image/Lounge_img2.jpg" alt="라운지이미지2">
+            <figcaption>
+              <span>갖고싶으면 담끼!<br>2023 WISH LIST</span>
+              <p>#위시리스트 # 집들이 #유아세트 #입학선물 #1인용</p>
+              <p>2023. 01. 31</p>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="./image/Lounge_img3.jpg" alt="라운지이미지3">
+            <figcaption>
+              <span>올해도 애쓴 나를 위한 선물<br>내년에도 애쓸 나를 위한 선물</span>
+              <p>2022. 12. 30</p>
+            </figcaption>
+          </figure>
+        </div>
+        <i class="fas fa-angle-left"></i>
+        <i class="fas fa-angle-right"></i>
+    </section>
+
+    <section id="now_sec">
+      <h2>Now</h2>
+      <article id="now_atc1">
+        <div class="now_box">
+          <div class="now_item">
+            <img src="./image/now_img8.jpg" alt="">
+            <img src="./image/now_img8_1.jpg" alt="">
+            <p>스트로움 베큠 콜드컵</p>
+          </div>
+          <div class="now_item">
+            <img src="./image/now_img9.jpg" alt="">
+            <img src="./image/now_img9_1.jpg" alt="">
+            <p>뉴클립 텀블러</p>
+          </div>
+          <div class="now_item">
+            <img src="./image/now_img10.jpg" alt="">
+            <img src="./image/now_img10_1.jpg" alt="">
+            <p>메트로 티 머그컵</p>
+          </div>
+          <div class="now_item">
+            <img src="./image/now_img11.jpg" alt="">
+            <img src="./image/now_img11_1.jpg" alt="">
+            <p>메트로 투웨이 텀블러</p>
+          </div>
+        </div>
+      </article>
+
+      <p class="m_box">
+        <a href="#" title="더보기">더보기</a>
+      </p>
+      
+      <!-- 추가 갤러리 리스트 -->
+      <article id="now_atc2"></article>
+
+    </section>
+
+    <aside class="top_btn">
+      <div class="top_box">
+        <i class="fa-solid fa-up-long"></i>
+      </div>
+    </aside>
+  </main>
+  <footer>
+    <div class="f_inner">  
+      <div class="f_l">
+        <h2><a href="index.html" title="메인페이지로 바로가기"></a><img src="./image/header_logo.png" alt="하단로고"></h2>
+        <address>
+          ㈜락앤락, 서울특별시 중구 세종대로 14, 20층<br>
+          (남대문로5가, 그랜드센트럴 A동) 대표: 이재호<br>
+          사업자등록번호: 214-85-34765<br>
+          &#x24D2;2021 LocknLock Co. All Rights Reserved.
+        </address>
+        <ul>
+          <li><a href="">락앤락몰 <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+          <li><a href="">스마트스토어 <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+        </ul>
+        <dl class="f_sns">
+          <!-- <dt>Connect with us</dt> -->
+          <dd>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+          </dd>
+        </dl>
+      </div>
+      <div class="f_r">
+        <nav>
+          <dl>
+            <dt><a href="#" title="">About</a></dt>
+            <dd><a href="#" title="">Brand</a></dd>
+            <dd><a href="#" title="">History</a></dd>
+            <dd><a href="#" title="">Award</a></dd>
+            <dd><a href="#" title="">경영정보</a></dd>
+            <dd><a href="#" title="">사회공헌</a></dd>
+          </dl>
+          
+          <dl>
+            <dt><a href="#" title="">Product</a></dt>
+            <dd><a href="#" title="">Food Comtainer</a></dd>
+            <dd><a href="#" title="">Beverageware</a></dd>
+            <dd><a href="#" title="">Cookware</a></dd>
+            <dd><a href="#" title="">Samll Appliance</a></dd>
+            <dd><a href="#" title="">E-Catalog</a></dd>
+          </dl>
+          
+          <dl>
+            <dt><a href="#" title="">Innovation</a></dt>
+            <dd><a href="#" title="">LL Labs</a></dd>
+            <dd><a href="#" title="">Design Center</a></dd>
+          </dl>
+          
+          <dl>
+            <dt><a href="#" title="">Story</a></dt>
+            <dd><a href="#" title="">News</a></dd>
+            <dd><a href="#" title="">Lounge</a></dd>
+            <dd><a href="#" title="">Now</a></dd>
+          </dl>
+          
+          <dl>
+            <dt><a href="#" title="">ESG</a></dt>
+            <dd><a href="#" title="">환경</a></dd>
+            <dd><a href="#" title="">사회</a></dd>
+            <dd><a href="#" title="">지배구조</a></dd>
+          </dl>
+          
+          <dl>
+            <dt><a href="#" title="">Career</a></dt>
+            <dd><a href="#" title="">사내문화</a></dd>
+            <dd><a href="#" title="">채용모집</a></dd>
+          </dl>
+          
+        </nav>
+      </div>
+    </div>
+    <div class="f_b">
+      <ul>
+        <li>글로벌 네트워크 문의</li>
+        <li>문의</li>
+        <li>개인정보처리방침</li>
+        <li>윤리경영</li>
+        <li>사이트맵</li>
+      </ul>
+    </div>
+  </footer>
+  <script>
+  </script>
+</body>
+</html>

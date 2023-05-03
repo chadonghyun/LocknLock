@@ -1,0 +1,255 @@
+@charset 'utf-8';
+
+/* 헤더영역서식 */
+
+header{
+  width: 100%; height: 50px;
+  top: 0px; left: 0px;
+  background: #fff;
+}
+.header_box{
+  width: 100%; height: 50px;
+  border-bottom: 1px #333;
+  /* box-sizing: border-box; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--f-size01);
+}
+.logo_box{
+  width: 130px;
+  margin-left: 20px;
+}
+.toggle{
+  width: 30px; height: 25px;
+  margin-right: 20px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* padding: 6px 0px; */
+}
+.toggle span{
+  height: 5px; width: 100%;
+  background: #000;
+  border-radius: 10px;
+  transition: 0.7s;
+}
+.header_nav{
+  display: none;
+  position: relative;
+  z-index: 997;
+  width: 100%;
+  background: #fff;
+}
+.gnb{
+  width: 100%;
+  background: #fff;
+}
+.gnb_li{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  font-size: var(--f-size02);
+  font-weight: bold;
+  transition: 0.9s;
+}
+.gnb_li > li{
+  border-bottom: 1px solid#333;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gnb_li > li a{
+  line-height: 50px;
+}
+.gnb_li_li{
+  width: 100%;
+  /* scale: 0; */
+  transition: 0.5s;
+  display: none;
+}
+.gnb_li_li > ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h_right{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70px;
+}
+.lockmall a{
+
+}
+.lockmall img{
+
+}
+.lang{
+
+}
+#lang{
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  padding-right: 5px;
+}
+/* #lang option{
+  padding:0px 20px;
+} */
+.search{
+  height: 70px; width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search_box{
+  width: 60%; height: 50%;
+  vertical-align: middle;
+  border-bottom: 1px solid#333;
+}
+.search a{ 
+  display: inline-block;
+  padding: 5px;
+  font-size: 1.5rem;
+}
+.search > a i.fa-solid{
+  /* font-size: 1.5rem; */
+}
+
+/* 토글버튼에 들어갈 서식 */
+.act01{
+  transform:rotate(45deg);
+  position: absolute;
+  top: 10px;
+}
+.act02{
+  scale: 0 !important;
+}
+.act03{
+  transform:rotate(-45deg);
+  position: absolute;
+  top: 10px; 
+}
+.a_on{transform:rotate(180deg) !important;}
+
+/* 탑버튼 */
+.top_btn{
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: #3C3AF5;
+  position: fixed;
+  bottom: 20px; right: 20px;
+  z-index: 10000;
+  cursor: pointer;
+}
+/* .top_box{
+  width: 30px; height: 30px;
+  position: relative;
+} */
+.top_box > .fa-solid{
+  font-size: 1.5rem;
+  color: #fff;
+  display: block;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* 푸터영역서식 */
+footer{
+  width:100%;
+  position:relative;
+}
+footer > .f_inner{border-top: 2px solid#000;}
+footer nav{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width:80%;
+  margin:0 auto;
+  padding:50px 0px;
+}
+footer dl{
+  line-height:30px;
+  width:50%;
+}
+footer dl dt{
+  font-weight:bold;
+  color:#000;
+  font-size:16px;
+}
+footer dl dt a{
+  color:#000;
+  font-weight:bold;
+  font-size:16px;
+}
+.pc_box{
+  width: 100%;
+  margin-top: 50px;
+  text-align:center;
+  line-height:80px;
+  border-top: 1px solid#ccc;
+}
+.pc_btn{
+  padding:5px 10px;
+  background:var(--bg-color01);
+  border-radius: 10px;
+  color: #fff;
+}
+
+/*	애니메이션 - transition, @keyframes */
+footer a{transition:0.5s;}
+footer dt:hover a{
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px ;
+  text-decoration-style: wavy;
+}
+footer dd:hover a{
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px ;
+}
+
+footer a:hover{text-decoration:none;}
+footer dl dd a{
+  color:#636363;
+  font-size:var(--f-size01);
+}
+footer dl:last-child{text-align: center;}
+footer dl:last-child dt{color:#000;}
+footer .f_sns{
+  width: 100%;
+}
+footer .f_sns i.fab{
+  font-size:14px;
+  border:1px solid #ccc;
+  padding:6px 8px;
+  margin:18px 6px 0px 6px;
+  transition:0.5s;
+}
+footer .f_sns i.fab:hover{
+  border:1px solid var(--bg-color01);
+  color:var(--bg-color01);
+}
+footer > address{
+  font-style:normal;
+  padding:10px 0px;
+  line-height:30px;
+  text-align:center;
+}
+footer h2{
+  width:200px;
+  margin:0px auto;
+  padding-bottom: 25px;
+}
+footer h2 img{width:100%;}
